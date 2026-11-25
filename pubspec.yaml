@@ -1,0 +1,20 @@
+name: score_note
+description: 高中成绩手记，本地优先的考试录入与对比工具。
+publish_to: none
+version: 0.3.0+4
+environment:
+  sdk: '>=3.13.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  material_ui: ^1.1.0
+  drift: ^2.35.4
+  path_provider: ^2.1.6
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  uses-material-design: true
+
+

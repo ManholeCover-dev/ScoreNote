@@ -1,0 +1,13 @@
+// Per-invocation mirror for Maven Central, not a machine-wide Gradle setting.
+beforeSettings { settings ->
+    settings.pluginManagement.repositories.maven { url = uri('https://storage.googleapis.com/maven-central/maven2') }
+    settings.pluginManagement.repositories.gradlePluginPortal()
+    settings.dependencyResolutionManagement.repositories.maven { url = uri('https://storage.googleapis.com/maven-central/maven2') }
+}
+gradle.beforeProject { project ->
+    project.buildscript.repositories.maven { url = uri('https://storage.googleapis.com/maven-central/maven2') }
+    if (project.gradle.settings.dependencyResolutionManagement.repositoriesMode.get().name() == 'PREFER_PROJECT') {
+        project.repositories.maven { url = uri('https://storage.googleapis.com/maven-central/maven2') }
+    }
+}
+
